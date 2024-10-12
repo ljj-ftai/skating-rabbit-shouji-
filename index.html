@@ -451,7 +451,7 @@
             preserveDrawingBuffer: true,
           });
 
-          this.renderer.setClearColor(new THREE.Color(this.bgrColor));
+          this.renderer.setClearColor(new THREE.Color(this.bgrColor))
           this.renderer.setSize(window.innerWidth, window.innerHeight);
           
           if (this.isMobile()) {
@@ -666,12 +666,12 @@
         }
 
         onWindowResize() {
-          this.winWidth = window.innerWidth;
-          this.winHeight = window.innerHeight;
-          this.camera.aspect = this.winWidth / this.winHeight;
-          this.camera.updateProjectionMatrix();
-          this.renderer.setSize(this.winWidth, this.winHeight);
-        }
+        this.winWidth = window.innerWidth;
+        this.winHeight = window.innerHeight;
+        this.camera.aspect = this.winWidth / this.winHeight;
+        this.camera.updateProjectionMatrix();
+        this.renderer.setSize(this.winWidth, this.winHeight);
+      }
 
         onMouseMove(event) {
           const x = (event.clientX / this.winWidth) * 2 - 1;
@@ -933,6 +933,9 @@
         this.scoreElement.style.fontSize = '18px';
         this.scoreElement.style.zIndex = '1000'; 
         document.body.appendChild(this.scoreElement);
+
+        this.countdownElement.style.fontSize = '4vw'; // 使用视口宽度的相对单位
+        this.scoreElement.style.fontSize = '4vw';
 
         // 重新开始按钮
         this.restartButton = document.createElement('button');
